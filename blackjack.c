@@ -21,7 +21,7 @@ int main() {
 	srand(time(NULL));
 	int player_hand = 0;
 	int dealer_hand = 0;
-	int player2_hand = 0;
+	int Mark_hand = 0;
 	char hs;
 	
 	printf("Let's play Blackjack. \n ");
@@ -29,14 +29,14 @@ int main() {
 	while (1) {
 		int player_card = random_card();
 		int dealer_card = random_card();
-		int player2_card = random_card();
+		int Mark_card = random_card();
 		player_hand += hand_calculator(player_card);
 		if (dealer_hand < 17) {dealer_hand += hand_calculator(dealer_card);}
-		if (player2_hand < 16) {player2_hand += hand_calculator(player2_card);}
+		if (Mark_hand < 16) {Mark_hand += hand_calculator(Mark_card);}
 		
 		printf("\n Your card is %d. Your total hand is %d. \n", player_card, player_hand);
 		printf("\n Dealer's card is %d. Dealer's total hand is %d", dealer_card, dealer_hand);
-		printf("\n player2's card is %d. player2's total hand is %d", player2_card, player2_hand);
+		printf("\n Mark's card is %d. Mark's total hand is %d", Mark_card, Mark_hand);
 
  	
 	 	if (player_hand == 21) {
@@ -59,51 +59,51 @@ int main() {
 		 		printf("\nDealer's final card is %d. Dealer's total hand is %d \n", dealer_card, dealer_hand);
 
 			}
-			while (player2_hand < 16)
+			while (Mark_hand < 16)
 			{
-				player2_card = random_card();
-				player2_hand += hand_calculator(player2_card);
-				printf("\nplayer2's final card is %d. player2's total hand is %d", player2_card, player2_hand);
+				Mark_card = random_card();
+				Mark_hand += hand_calculator(Mark_card);
+				printf("\nMark's final card is %d. Mark's total hand is %d", Mark_card, Mark_hand);
 			}
 			        
 				if (player_hand <= 21) 
 				{
-					if ( player_hand > dealer_hand && player2_hand > 21 || player_hand > player2_hand && dealer_hand > 21 || player_hand > dealer_hand && player_hand > player2_hand) 
+					if ( player_hand > dealer_hand && Mark_hand > 21 || player_hand > Mark_hand && dealer_hand > 21 || player_hand > dealer_hand && player_hand > Mark_hand) 
 					{
 						printf("\nYou win!");
 					}
 				}
 				if (dealer_hand <= 21)
 				{
-					if(dealer_hand > player_hand && player2_hand > 21 || dealer_hand > player2_hand && player_hand > 21 || dealer_hand > player_hand && dealer_hand > player2_hand)
+					if(dealer_hand > player_hand && Mark_hand > 21 || dealer_hand > Mark_hand && player_hand > 21 || dealer_hand > player_hand && dealer_hand > Mark_hand)
 					{
 						printf("\nDealer wins! :(");
 					}
 				}
-				if (player2_hand <= 21)
+				if (Mark_hand <= 21)
 				{
-					if (player2_hand > dealer_hand && player_hand > 21 || player2_hand > player_hand && dealer_hand > 21 || player2_hand > dealer_hand && player2_hand > player_hand)
+					if (Mark_hand > dealer_hand && player_hand > 21 || Mark_hand > player_hand && dealer_hand > 21 || Mark_hand > dealer_hand && Mark_hand > player_hand)
 					{
-						printf("\nPlayer2 wins! :(");
+						printf("\nMark wins! :(");
 					}
 				}
-				if ( player_hand == dealer_hand && dealer_hand == player2_hand) 
+				if ( player_hand == dealer_hand && dealer_hand == Mark_hand) 
 				{
 					printf("It is a tie!!");
 				}
-				if (dealer_hand <21 && player_hand < 21 && dealer_hand == player_hand && player_hand > player2_hand)
+				if (dealer_hand <21 && player_hand < 21 && dealer_hand == player_hand && player_hand > Mark_hand)
 				{
 					printf("It is a tie!!");
 				}
-				if ( dealer_hand < 21 && player2_hand < 21 && dealer_hand == player2_hand && dealer_hand > player_hand )
+				if ( dealer_hand < 21 && Mark_hand < 21 && dealer_hand == Mark_hand && dealer_hand > player_hand )
 				{
 					printf("It is a tie!!");
 				}
-				if ( player_hand < 21 && player2_hand < 21 && player_hand == player2_hand && player_hand > dealer_hand)
+				if ( player_hand < 21 && Mark_hand < 21 && player_hand == Mark_hand && player_hand > dealer_hand)
 				{
 					printf("It is a tie!!");
 				}
-				if (player_hand > 21 && dealer_hand > 21 && player2_hand > 21) 
+				if (player_hand > 21 && dealer_hand > 21 && Mark_hand > 21) 
 				{
 					printf("Everyone bust!");
 				}
